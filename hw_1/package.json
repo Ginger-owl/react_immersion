@@ -1,7 +1,8 @@
 {
   "name": "hw_1",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://ginger-owl.github.io/react_immersion",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -39,6 +40,5 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  },
-  "homepage": "https://ginger-owl.github.io/react_immersion"
+  }
 }
