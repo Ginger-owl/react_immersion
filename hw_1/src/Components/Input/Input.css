@@ -1,0 +1,11 @@
+.fields__field {
+  margin: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field__input {
+  padding: 6px 12px;
+  max-width: 320px;
+}

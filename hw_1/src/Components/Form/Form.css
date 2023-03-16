@@ -15,3 +15,24 @@
 .form__title {
   color: #373737;
 }
+
+.form__fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls__btn {
+  flex: 1;
+}
+
+.btn {
+  padding: 6px 12px;
+}
