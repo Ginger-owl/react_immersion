@@ -50,6 +50,5 @@ export const data = [
 ]
 
 export const initialState = data.reduce((initState, item) => {
-  console.log(initState);
   return {...initState, [item.name]: ''}
 }, {})
