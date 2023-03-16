@@ -48,3 +48,8 @@ export const data = [
     'placeholder': 'Developed an awesone HTML5 game, with three.js'
   }
 ]
+
+export const initialState = data.reduce((initState, item) => {
+  console.log(initState);
+  return {...initState, [item.name]: ''}
+}, {})
