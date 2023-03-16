@@ -27,6 +27,17 @@
   border: 2px #84BC9C solid;
 }
 
+.field__label {
+  color: #0A2342;
+  transition: .2s all ease-in-out;
+}
+
+.field:has(.field__input:focus) .field__label,
+.field:has(.field__input:focus-within) .field__label,
+.field:has(.field__input:focus-visible) .field__label {
+  font-weight: bold;
+}
+
 .field__input:valid {
   /* box-shadow: 1px 1px 4px 0px inset #2CA58D; */
   outline: none;
@@ -39,6 +50,3 @@
   border: 2px #F46197 solid;
 }
 
-.field__label {
-  color: #0A2342;
-}
