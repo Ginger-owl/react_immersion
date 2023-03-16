@@ -6,6 +6,39 @@
 }
 
 .field__input {
+  font: inherit;
   padding: 6px 12px;
-  max-width: 320px;
+  min-width: 280px;
+  color: #0A2342;
+  background-color: #FFFDF7;
+  border-radius: 8px;
+  border: 2px #84BC9C solid;
+}
+
+.field__input::placeholder {
+  color: #0A2342;
+  opacity: .6; 
+}
+
+.field__input:focus,
+.field__input:focus-within {
+  box-shadow: 1px 1px 4px 0px inset #0A2342;
+  outline: none;
+  border: 2px #84BC9C solid;
+}
+
+.field__input:valid {
+  /* box-shadow: 1px 1px 4px 0px inset #2CA58D; */
+  outline: none;
+  border: 2px #2CA58D solid;
+}
+
+.field__input:invalid {
+  box-shadow: 1px 1px 4px 0px inset #F46197;
+  outline: none;
+  border: 2px #F46197 solid;
+}
+
+.field__label {
+  color: #0A2342;
 }

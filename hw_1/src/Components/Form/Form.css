@@ -1,25 +1,28 @@
 .form {
   margin: 10px auto;
-  padding: 8px 16px;
-  width: 50%;
+  padding: 16px;
+  width: 80%;
   min-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  border: 2px solid #e5d5d5;
-  border-radius: 2px;
-  background-color: #ededed77;
+  border: 4px solid #84BC9C;
+  border-radius: 8px;
+  background-color: #FFFDF7;
 }
 
 .form__title {
-  color: #373737;
+  color: #0A2342;
 }
 
 .form__fields {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.field-textarea {
+  grid-column: span 2;
 }
 
 .form__controls {
@@ -35,4 +38,15 @@
 
 .btn {
   padding: 6px 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .form__fields {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .field-textarea {
+    grid-column: span 1;
+  }
 }

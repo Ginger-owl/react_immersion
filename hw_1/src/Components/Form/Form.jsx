@@ -23,6 +23,7 @@ export default class Form extends React.Component {
     <form
       className="form"
       method="get"
+      autoComplete='off'
       onSubmit={this.handleSubmit}
       >
       <h1 className='form__title' >Создание Анкеты</h1>
@@ -58,8 +59,8 @@ export default class Form extends React.Component {
       )}
       </div>
       <div className='form__controls'>
-        <Button className="btn-alert" text="Отменить" type="reset" isDisabled={false} key='btn-reset'/>
-        <Button className="btn-continue" text="Сохранить" type="submit" isDisabled={false} key='btn-submit'/>
+        <Button className="btn-reset" text="Отменить" type="reset" isDisabled={false} key='btn-reset'/>
+        <Button className="btn-submit" text="Сохранить" type="submit" isDisabled={false} key='btn-submit'/>
       </div>
     </form>
   ) 

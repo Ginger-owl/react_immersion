@@ -1,7 +1,6 @@
 import React from "react";
 import './Input.css'
 
-//label="Input your text", type="text", id="1", name="firstname", placeholder="John Winks"
 export default class Input extends React.Component {
   constructor(props) {
     super()
@@ -19,13 +18,19 @@ export default class Input extends React.Component {
     const onChange = this.props.onChange
     const value = this.props.value
 
-    
     return (
       <div className="fields__field field">
         <label className="field__label" htmlFor={this.id}>
           {this.label}
         </label>
-        <input className="field__input field__input-text" type={this.type} id={this.id} name={this.name} placeholder={this.placeholder} value={value} onChange={onChange} />
+        <input
+          className="field__input field__input-text"
+          type={this.type}
+          id={this.id}
+          name={this.name}
+          placeholder={this.placeholder}
+          value={value}
+          onChange={onChange} />
       </div>
     )
     }

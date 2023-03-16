@@ -9,7 +9,7 @@ export default class Textarea extends Input {
     const value = this.props.value
     
     return (
-      <div className="fields__field field">
+      <div className="fields__field field field-textarea">
         <label className="field__label" htmlFor={this.id}>
           {this.label}
         </label>
