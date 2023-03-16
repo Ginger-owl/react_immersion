@@ -1,8 +1,16 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+.page__body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(52,205,120);
+  background: linear-gradient(126deg, rgba(52,205,120,1) 0%, rgba(0,250,211,1) 32%, rgba(132,182,175,1) 49%, rgba(246,130,149,1) 70%, rgba(251,117,58,1) 100%);
+  min-height: 100vh;
 }

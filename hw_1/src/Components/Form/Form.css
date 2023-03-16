@@ -1,0 +1,17 @@
+.form {
+  margin: 10px auto;
+  padding: 8px 16px;
+  width: 50%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid #e5d5d5;
+  border-radius: 2px;
+  background-color: #ededed77;
+}
+
+.form__title {
+  color: #373737;
+}
