@@ -1,14 +1,8 @@
 import React from "react";
 import './Textarea.css';
+import Input from "../Input/Input";
 
-export default class Textarea extends React.Component {
-  constructor(props) {
-    super()
-    this.label = props.label
-    this.id = props.id
-    this.name = props.name;
-    this.placeholder = props.placeholder
-  }
+export default class Textarea extends Input {
 
   render = () => (
     <div className="fields__field field">
