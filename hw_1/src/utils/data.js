@@ -1,27 +1,27 @@
 export const data = [
   {
     'type': 'text',
-    'label': 'Фамилия',
-    'name': 'lastname',
-    'placeholder': 'Константинопольский'
-  },
-  {
-    'type': 'text',
     'label': 'Имя',
     'name': 'firstname',
     'placeholder': 'Марк'
   },
   {
+    'type': 'text',
+    'label': 'Фамилия',
+    'name': 'lastname',
+    'placeholder': 'Константинопольский'
+  },
+  {
     'type': 'date',
     'label': 'Дата рождения',
     'name': 'birthdate',
-    'placeholder': ''
+    'placeholder': '1988-03-02'
   },
   {
     'type': 'phone',
     'label': 'Телефон',
     'name': 'phone',
-    'placeholder': '+995891891787'
+    'placeholder': '+7 777 777 77 90'
   },
   {
     'type': 'text',
@@ -33,19 +33,19 @@ export const data = [
     'type': 'textarea',
     'label': 'О себе',
     'name': 'about',
-    'placeholder': 'Разработчик который всегда успевает в срок (и делает хорошо)'
+    'placeholder': 'Фронтедер с в опытом проджект-менеджменте и гейм-дизайне, Ph.d в области компьютерных наук'
   },
   {
     'type': 'textarea',
     'label': 'Стек технологий',
     'name': 'stack',
-    'placeholder': 'HTML, CSS, Js, React, PHP'
+    'placeholder': 'HTML, CSS, Js, React, Vue, PHP, C++'
   },
   {
     'type': 'textarea',
     'label': 'Описание последнего проекта',
     'name': 'last-project',
-    'placeholder': 'Developed an awesone HTML5 game, with three.js'
+    'placeholder': 'Разработал невероятную HTML5 игру, с использованием pixi.js'
   }
 ]
 
