@@ -21,7 +21,7 @@ export const data = [
     'type': 'phone',
     'label': 'Телефон',
     'name': 'phone',
-    'placeholder': '+7 777 777 77 90'
+    'placeholder': '7-7777-77-90'
   },
   {
     'type': 'text',

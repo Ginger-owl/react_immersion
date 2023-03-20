@@ -4,7 +4,7 @@ import Input from '../Input/Input';
 import Textarea from '../Textarea/Textarea';
 import Button from '../Button/Button';
 import { data, initialState } from '../../utils/data'
-
+import phoneNumberFormat from '../../utils/formatter';
 
 export default class Form extends React.Component {
   constructor() {
@@ -17,6 +17,15 @@ export default class Form extends React.Component {
     e.preventDefault();
     console.log(this.state)
     this.setState(() => initialState)
+  }
+
+  handleInput(e, name) {
+    if (name === 'phone') {
+      const formattedNumber =  phoneNumberFormat(e.target.value);
+      this.setState({ [name]: formattedNumber })
+    } else {
+      this.setState({ [name]: e.target.value })
+    }
   }
 
   render = () => (
@@ -37,10 +46,8 @@ export default class Form extends React.Component {
                     name={item.name}
                     placeholder={item.placeholder}
                     value = {this.state[item.name]}
-                    onChange={(e) => {
-                      this.setState({ [item.name]: e.target.value })
-                    }
-                  }/>
+                    onChange={e => this.handleInput(e, item.name)}
+                    />
         } else {
           return <Input
                   label={item.label}
@@ -50,10 +57,8 @@ export default class Form extends React.Component {
                   name={item.name}
                   placeholder={item.placeholder}
                   value = {this.state[item.name]}
-                  onChange={(e) => {
-                    this.setState({ [item.name]: e.target.value })
-                  }
-                }/>
+                  onChange={e => this.handleInput(e, item.name)}
+                />
         }
       }
       )}
