@@ -3,13 +3,17 @@ import './Form.css'
 import Input from '../Input/Input';
 import Textarea from '../Textarea/Textarea';
 import Button from '../Button/Button';
-import { data, initialState } from '../../utils/data'
-import phoneNumberFormat from '../../utils/formatter';
+import { data, initialState, initialErrors } from '../../utils/data'
+import { formatPhoneNumber } from '../../utils/formatter';
 
 export default class Form extends React.Component {
   constructor() {
     super()
-    this.state = {...initialState}
+    this.state = {
+      'data': initialState,
+      'errors': initialErrors,
+      'charCounters': {}
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -19,13 +23,21 @@ export default class Form extends React.Component {
     this.setState(() => initialState)
   }
 
-  handleInput(e, name) {
-    if (name === 'phone') {
-      const formattedNumber =  phoneNumberFormat(e.target.value);
-      this.setState({ [name]: formattedNumber })
-    } else {
-      this.setState({ [name]: e.target.value })
-    }
+  handleChange(e) {
+    const { name, value } = e.target
+    this.setState({
+      data: {
+        ...this.state.data,
+        [name] :
+          name === 'phone' ? formatPhoneNumber(value) : value,
+      }
+    })
+    this.setState({
+      errors: { ...this.state.errors, [name]: ''}
+    })
+    this.setState({
+      charCounters: { ...this.state.charCounters, [name]: value.length}
+    })
   }
 
   render = () => (
@@ -45,8 +57,10 @@ export default class Form extends React.Component {
                     key={item.name}
                     name={item.name}
                     placeholder={item.placeholder}
-                    value = {this.state[item.name]}
-                    onChange={e => this.handleInput(e, item.name)}
+                    value = {this.state.data[item.name]}
+                    onChange={e => this.handleChange(e, item.name)}
+                    counter={this.state.charCounters[item.name]}
+                    error={this.state.errors[item.name]}
                     />
         } else {
           return <Input
@@ -56,8 +70,9 @@ export default class Form extends React.Component {
                   key={item.name}
                   name={item.name}
                   placeholder={item.placeholder}
-                  value = {this.state[item.name]}
-                  onChange={e => this.handleInput(e, item.name)}
+                  value = {this.state.data[item.name]}
+                  onChange={e => this.handleChange(e, item.name)}
+                  error={this.state.errors[item.name]}
                 />
         }
       }

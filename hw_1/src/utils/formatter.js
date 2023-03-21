@@ -1,4 +1,4 @@
-export default function phoneNumberFormat(number) {
+export function formatPhoneNumber(number) {
   if (!number) {
     return number;
   }

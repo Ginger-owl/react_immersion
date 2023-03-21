@@ -52,3 +52,7 @@ export const data = [
 export const initialState = data.reduce((initState, item) => {
   return {...initState, [item.name]: ''}
 }, {})
+
+export const initialErrors = data.reduce((initErrors, item) => {
+  return {...initErrors, [item.name]: ''}
+}, {})
