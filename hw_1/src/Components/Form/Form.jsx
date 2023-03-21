@@ -4,23 +4,39 @@ import Input from '../Input/Input';
 import Textarea from '../Textarea/Textarea';
 import Button from '../Button/Button';
 import { data, initialState, initialErrors } from '../../utils/data'
-import { formatPhoneNumber } from '../../utils/formatter';
+import { formatName, formatPhoneNumber } from '../../utils/formatter';
 
 export default class Form extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       'data': initialState,
       'errors': initialErrors,
       'charCounters': {}
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleReset = this.handleReset.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state)
-    this.setState(() => initialState)
+    console.log('submit')
+    this.setState({
+      'data': initialState,
+      'errors': initialErrors,
+      'charCounters': {}
+    })
+  }
+
+  handleReset() {
+    this.setState({
+      'data': initialState,
+      'errors': initialErrors,
+      'charCounters': {}
+    })
+    console.log("clear")
   }
 
   handleChange(e) {
@@ -29,7 +45,11 @@ export default class Form extends React.Component {
       data: {
         ...this.state.data,
         [name] :
-          name === 'phone' ? formatPhoneNumber(value) : value,
+          name === 'phone' ?
+          formatPhoneNumber(value.trim()) :
+          name === 'firstname' || name === 'lastname' ?
+          formatName(value.trim()) :
+          value.trim(),
       }
     })
     this.setState({
@@ -79,8 +99,8 @@ export default class Form extends React.Component {
       )}
       </div>
       <div className='form__controls'>
-        <Button className="btn-reset" text="Отменить" type="reset" isDisabled={false} key='btn-reset'/>
-        <Button className="btn-submit" text="Сохранить" type="submit" isDisabled={false} key='btn-submit'/>
+        <Button className="btn-reset" text="Отменить" type="button" isDisabled={false} key='btn-reset' onClick={this.handleReset}/>
+        <Button className="btn-submit" text="Сохранить" type="button" isDisabled={false} key='btn-submit' onClick={this.handleSubmit} />
       </div>
     </form>
   ) 

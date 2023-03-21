@@ -5,7 +5,7 @@
   color: #0A2342;
   font-size: 16px;
   background-color: #FFFDF7;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
   box-shadow: 2px 2px 4px 0 #0A234288;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .btn-submit:hover,
-.btn-submit:focus {
+.btn-submit:active {
   background-color: #2CA58D;
   color: #FFFDF7;
   outline: none;
@@ -29,7 +29,7 @@
 }
 
 .btn-reset:hover,
-.btn-reset:focus {
+.btn-reset:active {
   background-color: #F46197;
   color: #FFFDF7;
   outline: none;

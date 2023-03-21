@@ -1,6 +1,6 @@
 export function formatPhoneNumber(number) {
   if (!number) {
-    return number;
+    return number
   }
   const phoneNumber = number.replace(/[^\d]/g, "")
   const phoneNumberLength = phoneNumber.length
@@ -16,4 +16,12 @@ export function formatPhoneNumber(number) {
   return (
     `${phoneNumber.slice(0,1)}-${phoneNumber.slice(1, 5)}-${phoneNumber.slice(5, 7)}-${phoneNumber.slice(7, 9)}`
     )
+}
+
+export function formatName(name) {
+  if (!name) {
+    return name
+  }
+
+  return `${name.slice(0,1).toUpperCase()}${name.slice(1)}`
 }
