@@ -12,7 +12,7 @@ export default class Textarea extends Input {
           {label}
         </label>
         <textarea 
-          className="field__input field__input-textarea"
+          className={!error ? "field__input field__input-textarea" : "field__input field__input-error field__input-textarea"}
           id={id}
           key={id}
           name={name}
@@ -23,7 +23,7 @@ export default class Textarea extends Input {
           maxLength={'600'}
           ></textarea>
           <p className="textarea-counter">Осталось { counter == null ? 600 : 600 - counter }/600 символов</p>
-          {error && <p className="textarea-error">{error}</p>}
+          {error && <p className="input-error textarea-error">{error}</p>}
       </div>
     )
     }

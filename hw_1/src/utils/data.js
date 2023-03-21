@@ -3,13 +3,17 @@ export const data = [
     'type': 'text',
     'label': 'Имя',
     'name': 'firstname',
-    'placeholder': 'Марк'
+    'placeholder': 'Марк',
+    'pattern': /^[A-ZА-ЯЁ][A-Za-zА-ЯЁа-яё'-]*$/,
+    'hint': 'Имя должно начинаться с заглавной буквы.'
   },
   {
     'type': 'text',
     'label': 'Фамилия',
     'name': 'lastname',
-    'placeholder': 'Константинопольский'
+    'placeholder': 'Константинопольский',
+    'pattern': /^[A-ZА-ЯЁ][A-Za-zА-ЯЁа-яё'-]*$/,
+    'hint': 'Фамилия должна начинаться с заглавной буквы.'
   },
   {
     'type': 'date',
@@ -27,7 +31,9 @@ export const data = [
     'type': 'text',
     'label': 'Сайт',
     'name': 'site',
-    'placeholder': 'yoursite.org'
+    'placeholder': 'https://yoursite.org',
+    'pattern': /^https?:\/\/.+/,
+    'hint': 'Адрес сайта должен начинаться с \'https://\'!'
   },
   {
     'type': 'textarea',

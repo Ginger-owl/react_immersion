@@ -1,5 +1,6 @@
 .fields__field {
-  margin: 6px;
+  position: relative;
+  margin: 6px 6px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -44,9 +45,16 @@
   border: 2px #2CA58D solid;
 }
 
-.field__input:invalid {
+.field__input-error {
   box-shadow: 1px 1px 4px 0px inset #F46197;
   outline: none;
   border: 2px #F46197 solid;
 }
 
+.input-error {
+  position: absolute;
+  bottom: -16px;
+  left: 4px;
+  color: #F46197;
+  font-size: 12px;
+}

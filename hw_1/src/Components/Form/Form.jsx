@@ -6,6 +6,8 @@ import Button from '../Button/Button';
 import { data, initialState, initialErrors } from '../../utils/data'
 import { formatName, formatPhoneNumber } from '../../utils/formatter';
 
+//TODO: Validation, Subnit and Display a final Modal
+
 export default class Form extends React.Component {
   constructor(props) {
     super(props)
@@ -20,14 +22,34 @@ export default class Form extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    console.log(this.state)
-    console.log('submit')
-    this.setState({
-      'data': initialState,
-      'errors': initialErrors,
-      'charCounters': {}
-    })
+    e.preventDefault()
+    let isFormValid = true;
+    const submittedData = this.state.data
+    let errors = {}
+    errors = data.reduce((errors, item) => {
+      if (!submittedData[item.name]) {
+        errors[item.name] = `Поле должно быть заполнено`
+        isFormValid = false
+      } else if (item.pattern && item.hint) {
+        if (!item.pattern.test(submittedData[item.name])) {
+          errors[item.name] = item.hint
+          isFormValid = false
+        }
+      }
+      return errors
+    }, {})
+
+    this.setState({'errors': errors})
+
+    if (isFormValid) {
+      console.log(this.state)
+      console.log('submit')
+      this.setState({
+        'data': initialState,
+        'errors': initialErrors,
+        'charCounters': {}
+      })
+    }
   }
 
   handleReset() {
@@ -49,9 +71,10 @@ export default class Form extends React.Component {
           formatPhoneNumber(value.trim()) :
           name === 'firstname' || name === 'lastname' ?
           formatName(value.trim()) :
-          value.trim(),
+          value,
       }
     })
+    console.log(this.state.data)
     this.setState({
       errors: { ...this.state.errors, [name]: ''}
     })
