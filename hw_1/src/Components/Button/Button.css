@@ -20,10 +20,6 @@
   outline: none;
 }
 
-.btn-submit:active {
-  transform: translateY(2px);
-}
-
 .btn-reset {
   border: 2px solid #F46197;
 }
@@ -36,5 +32,17 @@
 }
 
 .btn-reset:active {
+  transform: translateY(2px);
+}
+
+
+.btn-back:hover,
+.btn-back:active {
+  background-color: #0A2342;
+  color: #FFFDF7;
+  outline: none;
+}
+
+.btn:active {
   transform: translateY(2px);
 }

@@ -1,0 +1,27 @@
+.profile {
+  margin: 10px auto;
+  padding: 16px;
+  width: fit-content;
+  min-width: 320px;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 4px solid #84BC9C;
+  border-radius: 8px;
+  background-color: #FFFDF7;
+}
+
+.profile__subtitle {
+  margin: 0;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.profile__text {
+  background: #faf3da;
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+}

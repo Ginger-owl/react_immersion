@@ -50,7 +50,7 @@ export const data = [
   {
     'type': 'textarea',
     'label': 'Описание последнего проекта',
-    'name': 'last-project',
+    'name': 'last_project',
     'placeholder': 'Разработал невероятную HTML5 игру, с использованием pixi.js'
   }
 ]

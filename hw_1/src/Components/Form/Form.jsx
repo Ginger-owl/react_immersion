@@ -6,7 +6,6 @@ import Button from '../Button/Button';
 import { data, initialState, initialErrors } from '../../utils/data'
 import { formatName, formatPhoneNumber } from '../../utils/formatter';
 
-//TODO: Validation, Subnit and Display a final Modal
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -44,6 +43,7 @@ export default class Form extends React.Component {
     if (isFormValid) {
       console.log(this.state)
       console.log('submit')
+      this.props.onSubmit(this.state.data)
       this.setState({
         'data': initialState,
         'errors': initialErrors,
