@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Form.css'
 import Input from '../Input/Input';
 import Textarea from '../Textarea/Textarea';
@@ -7,24 +7,15 @@ import { data, initialState, initialErrors } from '../../utils/data'
 import { formatName, formatPhoneNumber } from '../../utils/formatter';
 
 
-export default class Form extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      'data': initialState,
-      'errors': initialErrors,
-      'charCounters': {}
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleReset = this.handleReset.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.handleBlur = this.handleBlur.bind(this)
-  }
+export default function Form (props) {
+  const [formData, setFormData] = useState(initialState)
+  const [formErros, setFormErros] = useState(initialErrors)
+  const [charCounters, setCharCounters] = useState({})
 
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault()
     let isFormValid = true;
-    const submittedData = this.state.data
+    const submittedData = formData
     let errors = {}
     errors = data.reduce((errors, item) => {
       if (!submittedData[item.name]) {
@@ -39,27 +30,23 @@ export default class Form extends React.Component {
       return errors
     }, {})
 
-    this.setState({'errors': errors})
-
     if (isFormValid) {
-      this.props.onSubmit(this.state.data)
-      this.setState({
-        'data': initialState,
-        'errors': initialErrors,
-        'charCounters': {}
-      })
+      props.onSubmit(formData)
+      setFormData(initialState)
+      setFormErros(initialErrors)
+      setCharCounters({})
     }
+
+    setFormErros(errors)
   }
 
-  handleReset() {
-    this.setState({
-      'data': initialState,
-      'errors': initialErrors,
-      'charCounters': {}
-    })
+  const handleReset = () => {
+    setFormData(initialState)
+    setFormErros(initialErrors)
+    setCharCounters({})
   }
 
-  handleBlur(e) {
+  const handleBlur = (e) => {
     const { name, value} = e.target
     const inputData = data.find(item => item.name === name)
     let newError = '';
@@ -72,40 +59,26 @@ export default class Form extends React.Component {
       }
     }
     if (newError !== '') {
-      this.setState({
-        errors: { ...this.state, [name]:  newError}
-      })
+      setFormErros(prev => ({...prev, [name]:  newError}))
     }
-    console.log('blurred!')
 }
 
-  handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target
-    this.setState({
-      data: {
-        ...this.state.data,
-        [name] :
-          name === 'phone' ?
-          formatPhoneNumber(value.trim()) :
-          name === 'firstname' || name === 'lastname' ?
-          formatName(value.trim()) :
-          value,
-      }
-    })
-    this.setState({
-      errors: { ...this.state.errors, [name]: ''}
-    })
-    this.setState({
-      charCounters: { ...this.state.charCounters, [name]: value.length}
-    })
+
+    const formattedValue = name === 'phone' ? formatPhoneNumber(value.trim()) : name === 'firstname' || name === 'lastname' ? formatName(value.trim()) : value
+    
+    setFormData((prev) => ({...prev, [name]: formattedValue}))
+    setFormErros(prev => ({...prev, [name]:  ''}))
+    setCharCounters(prev => ({...prev, [name]: formattedValue.length}))
   }
 
-  render = () => (
+  return (
     <form
       className="form"
       method="get"
       autoComplete='off'
-      onSubmit={this.handleSubmit}
+      onSubmit={handleSubmit}
       >
       <h1 className='form__title' >Создание Анкеты</h1>
       <div className='form__fields'>
@@ -117,11 +90,11 @@ export default class Form extends React.Component {
                     key={item.name}
                     name={item.name}
                     placeholder={item.placeholder}
-                    value = {this.state.data[item.name]}
-                    onChange={e => this.handleChange(e, item.name)}
-                    onBlur={this.handleBlur}
-                    counter={this.state.charCounters[item.name]}
-                    error={this.state.errors[item.name]}
+                    value = {formData[item.name]}
+                    onChange={e => handleChange(e, item.name)}
+                    onBlur={handleBlur}
+                    counter={charCounters[item.name]}
+                    error={formErros[item.name]}
                     />
         } else {
           return <Input
@@ -131,18 +104,18 @@ export default class Form extends React.Component {
                   key={item.name}
                   name={item.name}
                   placeholder={item.placeholder}
-                  value = {this.state.data[item.name]}
-                  onChange={e => this.handleChange(e, item.name)}
-                  onBlur={this.handleBlur}
-                  error={this.state.errors[item.name]}
+                  value = {formData[item.name]}
+                  onChange={e => handleChange(e, item.name)}
+                  onBlur={handleBlur}
+                  error={formErros[item.name]}
                 />
         }
       }
       )}
       </div>
       <div className='form__controls'>
-        <Button className="btn-reset" text="Отменить" type="button" isDisabled={false} key='btn-reset' onClick={this.handleReset}/>
-        <Button className="btn-submit" text="Сохранить" type="button" isDisabled={false} key='btn-submit' onClick={this.handleSubmit} />
+        <Button className="btn-reset" text="Отменить" type="button" isDisabled={false} key='btn-reset' onClick={handleReset}/>
+        <Button className="btn-submit" text="Сохранить" type="button" isDisabled={false} key='btn-submit' onClick={handleSubmit} />
       </div>
     </form>
   ) 

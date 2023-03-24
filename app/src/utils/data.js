@@ -34,7 +34,7 @@ export const data = [
     'label': 'Сайт',
     'name': 'site',
     'placeholder': 'https://yoursite.org',
-    'pattern': /^https?:\/\/.+/,
+    'pattern': /^https:\/\/.+/,
     'hint': 'Адрес сайта должен начинаться с https://'
   },
   {
