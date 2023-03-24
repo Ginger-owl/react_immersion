@@ -4,7 +4,7 @@ import Input from "../Input/Input";
 
 export default class Textarea extends Input {
   render = () => {
-    const {id, label, name, placeholder, value, onChange, counter, error} = this.props
+    const {id, label, name, placeholder, value, onChange, onBlur, counter, error} = this.props
     
     return (
       <div className="fields__field field field-textarea">
@@ -20,6 +20,7 @@ export default class Textarea extends Input {
           rows="7"
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
           maxLength={'600'}
           ></textarea>
           <p className="textarea-counter">Осталось { counter == null ? 600 : 600 - counter }/600 символов</p>

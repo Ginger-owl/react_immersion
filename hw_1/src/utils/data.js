@@ -25,7 +25,9 @@ export const data = [
     'type': 'phone',
     'label': 'Телефон',
     'name': 'phone',
-    'placeholder': '7-7777-77-90'
+    'placeholder': '7-7777-77-90',
+    'pattern': /^[0-9|-]{12}$/,
+    'hint': 'Номер должен состоять из 9 цифр'
   },
   {
     'type': 'text',
@@ -33,7 +35,7 @@ export const data = [
     'name': 'site',
     'placeholder': 'https://yoursite.org',
     'pattern': /^https?:\/\/.+/,
-    'hint': 'Адрес сайта должен начинаться с \'https://\'!'
+    'hint': 'Адрес сайта должен начинаться с https://'
   },
   {
     'type': 'textarea',

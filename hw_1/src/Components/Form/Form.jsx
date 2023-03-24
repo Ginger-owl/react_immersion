@@ -18,6 +18,7 @@ export default class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleReset = this.handleReset.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
   }
 
   handleSubmit(e) {
@@ -41,8 +42,6 @@ export default class Form extends React.Component {
     this.setState({'errors': errors})
 
     if (isFormValid) {
-      console.log(this.state)
-      console.log('submit')
       this.props.onSubmit(this.state.data)
       this.setState({
         'data': initialState,
@@ -58,8 +57,27 @@ export default class Form extends React.Component {
       'errors': initialErrors,
       'charCounters': {}
     })
-    console.log("clear")
   }
+
+  handleBlur(e) {
+    const { name, value} = e.target
+    const inputData = data.find(item => item.name === name)
+    let newError = '';
+
+    if (value === '') {
+      newError =`Поле должно быть заполнено`
+    } else if (inputData.pattern && inputData.hint) {
+      if (!inputData.pattern.test(value)) {
+        newError = inputData.hint
+      }
+    }
+    if (newError !== '') {
+      this.setState({
+        errors: { ...this.state, [name]:  newError}
+      })
+    }
+    console.log('blurred!')
+}
 
   handleChange(e) {
     const { name, value } = e.target
@@ -74,7 +92,6 @@ export default class Form extends React.Component {
           value,
       }
     })
-    console.log(this.state.data)
     this.setState({
       errors: { ...this.state.errors, [name]: ''}
     })
@@ -102,6 +119,7 @@ export default class Form extends React.Component {
                     placeholder={item.placeholder}
                     value = {this.state.data[item.name]}
                     onChange={e => this.handleChange(e, item.name)}
+                    onBlur={this.handleBlur}
                     counter={this.state.charCounters[item.name]}
                     error={this.state.errors[item.name]}
                     />
@@ -115,6 +133,7 @@ export default class Form extends React.Component {
                   placeholder={item.placeholder}
                   value = {this.state.data[item.name]}
                   onChange={e => this.handleChange(e, item.name)}
+                  onBlur={this.handleBlur}
                   error={this.state.errors[item.name]}
                 />
         }
