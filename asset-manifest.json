@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react_immersion/static/css/main.ccf428fe.css",
-    "main.js": "/react_immersion/static/js/main.53afadfc.js",
+    "main.css": "/react_immersion/static/css/main.8d65f0c1.css",
+    "main.js": "/react_immersion/static/js/main.e81ced79.js",
     "static/js/787.f28ed49d.chunk.js": "/react_immersion/static/js/787.f28ed49d.chunk.js",
     "index.html": "/react_immersion/index.html",
-    "main.ccf428fe.css.map": "/react_immersion/static/css/main.ccf428fe.css.map",
-    "main.53afadfc.js.map": "/react_immersion/static/js/main.53afadfc.js.map",
+    "main.8d65f0c1.css.map": "/react_immersion/static/css/main.8d65f0c1.css.map",
+    "main.e81ced79.js.map": "/react_immersion/static/js/main.e81ced79.js.map",
     "787.f28ed49d.chunk.js.map": "/react_immersion/static/js/787.f28ed49d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ccf428fe.css",
-    "static/js/main.53afadfc.js"
+    "static/css/main.8d65f0c1.css",
+    "static/js/main.e81ced79.js"
   ]
 }
