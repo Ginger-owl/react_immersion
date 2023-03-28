@@ -39,7 +39,6 @@
 }
 
 .field__input:valid {
-  /* box-shadow: 1px 1px 4px 0px inset #2CA58D; */
   outline: none;
   border: 2px #2CA58D solid;
 }
