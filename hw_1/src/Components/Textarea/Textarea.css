@@ -1,0 +1,18 @@
+.field-textarea {
+  position: relative;
+}
+
+.field__input-textarea {
+  padding: 8px 12px 18px;
+  resize: none;
+  color: #0A2342;
+  background-color: #FFFDF7;
+}
+
+.textarea-counter {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  font-size: 12px;
+  color: #848484;
+}
