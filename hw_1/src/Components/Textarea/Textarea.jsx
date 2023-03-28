@@ -22,7 +22,7 @@ export default class Textarea extends Input {
           onChange={onChange}
           onBlur={onBlur}
           maxLength={'600'}
-          ></textarea>
+          />
           <p className="textarea-counter">Осталось { counter == null ? 600 : 600 - counter }/600 символов</p>
           {error && <p className="input-error textarea-error">{error}</p>}
       </div>
