@@ -1,0 +1,51 @@
+.fields__field {
+  margin: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field__input {
+  font: inherit;
+  padding: 6px 12px;
+  min-width: 280px;
+  color: #0A2342;
+  background-color: #FFFDF7;
+  border-radius: 8px;
+  border: 2px #84BC9C solid;
+}
+
+.field__input::placeholder {
+  color: #0A2342;
+  opacity: .6; 
+}
+
+.field__input:focus,
+.field__input:focus-within {
+  box-shadow: 1px 1px 4px 0px inset #0A2342;
+  outline: none;
+  border: 2px #84BC9C solid;
+}
+
+.field__label {
+  color: #0A2342;
+  transition: .2s all ease-in-out;
+}
+
+.field:has(.field__input:focus) .field__label,
+.field:has(.field__input:focus-within) .field__label,
+.field:has(.field__input:focus-visible) .field__label {
+  font-weight: bold;
+}
+
+.field__input:valid {
+  outline: none;
+  border: 2px #2CA58D solid;
+}
+
+.field__input:invalid {
+  box-shadow: 1px 1px 4px 0px inset #F46197;
+  outline: none;
+  border: 2px #F46197 solid;
+}
+
