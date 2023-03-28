@@ -82,35 +82,33 @@ export default function Form (props) {
       >
       <h1 className='form__title' >Создание Анкеты</h1>
       <div className='form__fields'>
-      {data.map((item) => {
-        if (item.type === 'textarea') {
-          return <Textarea
-                    label={item.label}
-                    id={item.name}
-                    key={item.name}
-                    name={item.name}
-                    placeholder={item.placeholder}
-                    value = {formData[item.name]}
-                    onChange={e => handleChange(e, item.name)}
-                    onBlur={handleBlur}
-                    counter={charCounters[item.name]}
-                    error={formErros[item.name]}
-                    />
-        } else {
-          return <Input
-                  label={item.label}
-                  type={item.type}
-                  id={item.name}
-                  key={item.name}
-                  name={item.name}
-                  placeholder={item.placeholder}
-                  value = {formData[item.name]}
-                  onChange={e => handleChange(e, item.name)}
-                  onBlur={handleBlur}
-                  error={formErros[item.name]}
-                />
-        }
-      }
+      {data.map((item) => (
+        item.type === 'textarea' ? 
+          <Textarea
+            label={item.label}
+            id={item.name}
+            key={item.name}
+            name={item.name}
+            placeholder={item.placeholder}
+            value = {formData[item.name]}
+            onChange={e => handleChange(e, item.name)}
+            onBlur={handleBlur}
+            counter={charCounters[item.name]}
+            error={formErros[item.name]}
+          /> :
+           <Input
+              label={item.label}
+              type={item.type}
+              id={item.name}
+              key={item.name}
+              name={item.name}
+              placeholder={item.placeholder}
+              value = {formData[item.name]}
+              onChange={e => handleChange(e, item.name)}
+              onBlur={handleBlur}
+              error={formErros[item.name]}
+          />
+        )
       )}
       </div>
       <div className='form__controls'>

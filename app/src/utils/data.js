@@ -64,3 +64,30 @@ export const initialState = data.reduce((initState, item) => {
 export const initialErrors = data.reduce((initErrors, item) => {
   return {...initErrors, [item.name]: ''}
 }, {})
+
+export const profileFields = [
+  {
+    'label': 'Дата рождения',
+    'name': 'birthdate',
+  },
+  {
+    'label': 'Телефон',
+    'name': 'phone',
+  },
+  {
+    'label': 'Веб-сайт',
+    'name': 'site',
+  },
+  {
+    'label': 'О себе',
+    'name': 'about',
+  },
+  {
+    'label': 'Стек технологий',
+    'name': 'stack',
+  },
+  {
+    'label': 'Описание последнего проекта',
+    'name': 'last_project',
+  }
+]
